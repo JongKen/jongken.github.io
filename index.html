@@ -58,7 +58,7 @@
     display: none; 
   }
   
-  /* THÊM CSS CHO ẢNH NỀN */
+  /* THÊM CSS CHO ẢNH NỀN Cây đậu thần */
   #beanstalk-bg {
     position: absolute; 
     top: 0; 
@@ -66,28 +66,31 @@
     transform: translateX(-50%); 
     width: 100%; 
     height: auto;
-    z-index: 1; 
+    z-index: 3; /* Cây đậu thần */
     max-height: 100%; 
     object-fit: cover; 
   }
 
+  /* ĐÃ LOẠI BỎ CSS CHO #ground-bg (1000000699.png) */
+  
+
   /* THÊM CSS CHO BÓNG ĐÈN */
   #light-bulb {
       position: absolute;
-      top: 8px; 
+      top: 3px; /* ĐÃ SỬA: Xích lên 5px (8px -> 3px) */
       left: 30%; 
       transform: translateX(-50%);
-      width: 60px; 
-      height: auto;
       z-index: 8; 
       cursor: pointer; 
+      width: 60px; 
+      height: auto;
   }
 
-  /* CÂN ĐẨU VÂN (Slot 0) */
+  /* CÂN ĐẨU VÂN (Slot 0) - ĐÃ CHỈNH SỬA: Xích lên 50px (50px -> 0px) */
   #kinto-cloud {
       position: absolute; 
-      top: 50px; 
-      left: 60%; 
+      top: 0px; 
+      left: calc(60% + 40px); /* Dịch chuyển điểm neo sang phải 40px */
       transform: translateX(-50%); 
       width: 80px; 
       height: 80px; 
@@ -143,28 +146,75 @@
       left: -20px; 
   }
   
+  /* === ĐÃ SỬA: Thu nhỏ nhân vật ô số 6 === */
   #slot-6 img {
-      width: 200%; 
-      height: 200%; 
-      top: -50px; 
-      left: -25px; 
+      width: 130%; 
+      height: 130%; 
+      top: -35px; 
+      left: -15px; 
   }
 
-  /* ĐỊNH VỊ CHO CÁC SLOT (Đã chỉnh sửa top +15px tổng cộng) */
-  #slot-1 { top: 180px; left: calc(50% - 150px + 20px); } 
-  #slot-2 { top: 180px; left: calc(50% - 90px + 10px); }  
-  #slot-3 { top: 180px; left: calc(50% - 30px + 10px); }   
+  /* ĐỊNH VỊ CHO CÁC SLOT (Đã chỉnh sửa top -20px: 145px -> 125px) */
+  /* === ĐÃ CHỈNH SỬA LẦN 2: Xích qua trái thêm 10px (Trừ thêm 10px) === */
+  #slot-1 { top: 125px; left: calc(50% - 160px); } 
+  #slot-2 { top: 125px; left: calc(50% - 90px - 20px); }  
+  #slot-3 { top: 125px; left: calc(50% - 30px - 20px); }   
   /* ĐÃ SỬA: Dịch chuyển xuống thêm 10px (400px -> 410px) */
   /* === ĐÃ CHỈNH SỬA: Thêm 15px sang phải theo yêu cầu === */
-  #slot-6 { top: 410px; left: calc(50% - 30px + 10px + 15px); }
-  #slot-4 { top: 180px; left: calc(50% + 30px + 10px); }  
-  #slot-5 { top: 180px; left: calc(50% + 90px + 10px); } 
+  /* === ĐÃ CHỈNH SỬA LẦN 3: Xích lên 60px (410px -> 350px) === */
+  /* === ĐÃ CHỈNH SỬA LẦN 4: Xích lên 30px (350px -> 320px) === */
+  /* === ĐÃ CHỈNH SỬA LẦN 5: Xích lên 20px (320px -> 300px) và sang trái 20px (-20px) === */
+  /* === CHỈNH SỬA MỚI: Di chuyển xuống 20px (300px -> 320px) === */
+  #slot-6 { top: 320px; left: calc(50% - 30px + 10px + 15px - 20px); }
+  #slot-4 { top: 125px; left: calc(50% + 30px - 20px); }  
+  #slot-5 { top: 125px; left: calc(50% + 90px - 20px); } 
   
   #slot-2, #slot-3, #slot-4, #slot-5, #slot-1, #slot-6 {
       background: transparent; 
       border: none;          
   }
 
+  /* THÊM CSS CHO NHÀ PET (Hình 1000000100.png) */
+  #pet-house {
+      position: absolute;
+      /* ĐẶT Ở PHÍA DƯỚI CÙNG, CÁCH ĐÁY 210PX (130px + 80px) */
+      bottom: 210px; 
+      left: 50%;
+      /* DI CHUYỂN QUA PHẢI 100PX (Centering + 100px) */
+      transform: translateX(calc(-50% + 100px)); 
+      width: 150px; /* Kích thước phù hợp */
+      height: auto;
+      z-index: 7; /* Đặt cao hơn các slot chậu */
+      cursor: pointer;
+  }
+  
+  /* THÊM CSS CHO CHÚ CHÓ PUG */
+  #pug-pet {
+      position: absolute;
+      /* ĐẶT NGAY PHÍA DƯỚI NHÀ PET, CÁCH ĐÁY 130PX */
+      bottom: 130px; 
+      left: 50%;
+      /* DI CHUYỂN QUA TRÁI 50PX (Centering - 50px) */
+      transform: translateX(calc(-50% - 50px)); 
+      width: 120px; /* Kích thước phù hợp với bối cảnh */
+      height: auto;
+      z-index: 7; /* Cùng layer với nhà pet */
+  }
+  
+  /* THÊM CSS CHO BÁT XƯƠNG (Hình 1000000103.png) */
+  #bone-bowl {
+      position: absolute;
+      /* CÙNG TRỤC Y VỚI CHÓ PUG (bottom: 130px) */
+      bottom: 130px; 
+      left: 50%;
+      /* DI CHUYỂN QUA PHẢI KHOẢNG 50PX (Centering + 50px) */
+      transform: translateX(calc(-50% + 50px)); 
+      width: 50px; /* ĐÃ CHỈNH SỬA: Giảm kích thước xuống một nửa (100px -> 50px) */
+      height: auto;
+      z-index: 7; 
+      cursor: pointer; /* Cho phép tương tác */
+  }
+  
   /* POPUPs cần được đặt cố định tương đối với màn hình thật */
   #exp-popup, #equip-box, #shop-box, #online-box { 
     position:fixed; 
@@ -253,12 +303,12 @@ Tên bạn là gì?
 </div>
 
 <main>
-  <img id="beanstalk-bg" src="1000000683.jpg" alt="Cây đậu thần" />
+  <img id="beanstalk-bg" src="1000000700.png" alt="Cây đậu thần" />
   
   <img id="light-bulb" src="bongdensoidot.png" alt="Bóng đèn sợi đốt" />
   <div id="pot-container">
     <div class="pot-slot" id="slot-1" data-slot="1">
-        <img src="1763444144946.png" alt="Nhân vật đen-đỏ" />
+        <img src="1000000101.png" alt="Nhân vật đen-đỏ" />
     </div>
     
     <div class="pot-slot" id="slot-2" data-slot="2">
@@ -280,6 +330,12 @@ Tên bạn là gì?
     </div>
   
   <img id="kinto-cloud" src="candauvan.png" alt="Cân Đẩu Vân" data-slot="0" />
+  
+  <img id="pet-house" src="1000000100.png" alt="Nhà Pet" />
+  
+  <img id="pug-pet" src="1000000102.png" alt="Chú chó Pug" />
+  
+  <img id="bone-bowl" src="1000000103.png" alt="Bát đựng xương" />
   
   <div>
     </div>
@@ -527,6 +583,52 @@ potSlots.forEach(slot => {
         expPopup.style.display = 'block';
     });
 });
+
+// 4. NHÀ PET - Hiện popup EXP (Tạm thời)
+const petHouse = document.getElementById("pet-house");
+if (petHouse) {
+    petHouse.addEventListener("click", () => {
+        if (level === 0) {
+            alert("Bạn cần tạo nông trại trước! Vui lòng nhấn nút '🆕 Tạo' ở trên.");
+            return;
+        }
+        expText.innerHTML = `Bạn đã thăm **Nhà Pet**.<br>Chúc năng Pet sẽ có ở phiên bản tiếp theo!`;
+        expPopup.style.display = 'block';
+    });
+}
+
+// === LOGIC CHO CHÚ CHÓ PUG (Tạm thời) ===
+const pugPet = document.getElementById("pug-pet");
+if (pugPet) {
+    pugPet.addEventListener("click", () => {
+        if (level === 0) {
+            alert("Bạn cần tạo nông trại trước! Vui lòng nhấn nút '🆕 Tạo' ở trên.");
+            return;
+        }
+        expText.innerHTML = `**Chú chó Pug** đang nằm sấp.<br>Đây là Pet mới của bạn!`;
+        expPopup.style.display = 'block';
+    });
+}
+
+// === LOGIC CHO BÁT XƯƠNG (Tạm thời) ===
+const boneBowl = document.getElementById("bone-bowl");
+if (boneBowl) {
+    boneBowl.addEventListener("click", () => {
+        if (level === 0) {
+            alert("Bạn cần tạo nông trại trước! Vui lòng nhấn nút '🆕 Tạo' ở trên.");
+            return;
+        }
+        // Giả lập tương tác: cho ăn
+        if(xu >= 10){
+            xu -= 10;
+            updateDisplay();
+            expText.innerHTML = `Bạn đã cho Pet ăn **xương**! (-10 Xu)`;
+        } else {
+            expText.innerHTML = `Không đủ Xu để mua xương cho Pet!`;
+        }
+        expPopup.style.display = 'block';
+    });
+}
 
 // === QUAN TRỌNG: HÀM ĐIỀU CHỈNH SCALE GIAO DIỆN (Đã khắc phục lỗi hiển thị trên PC) ===
 function adjustAppWrapperScale() {
